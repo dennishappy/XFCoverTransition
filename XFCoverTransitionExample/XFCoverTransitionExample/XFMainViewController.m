@@ -8,6 +8,7 @@
 
 #import "XFMainViewController.h"
 #import "XFPageViewController.h"
+#import "XFCoverTransition.h"
 
 @interface XFMainViewController ()
 
@@ -23,7 +24,7 @@
 - (IBAction)modalAction:(id)sender {
     XFPageViewController *page = [[XFPageViewController alloc] init];
     page.modalPresentationStyle = UIModalPresentationCustom;
-//    page.transitioningDelegate = [HMTransition sharedtransition];
+    page.transitioningDelegate = [XFCoverTransitionManager sharedManager];
     [self presentViewController:page animated:YES completion:nil];
     
     
