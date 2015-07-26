@@ -12,6 +12,7 @@
 		403992651B63E865001AE92B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403992631B63E865001AE92B /* Main.storyboard */; };
 		403992671B63E865001AE92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 403992661B63E865001AE92B /* Assets.xcassets */; };
 		4039926A1B63E865001AE92B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403992681B63E865001AE92B /* LaunchScreen.storyboard */; };
+		40593ADA1B648BED00EF4B33 /* XFCTConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40593AD91B648BED00EF4B33 /* XFCTConfig.m */; };
 		40933E771B63E97800BAFDE3 /* XFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40933E731B63E97800BAFDE3 /* XFMainViewController.m */; };
 		40933E781B63E97800BAFDE3 /* XFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40933E751B63E97800BAFDE3 /* XFPageViewController.m */; };
 		40933E791B63E97800BAFDE3 /* XFPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40933E761B63E97800BAFDE3 /* XFPageViewController.xib */; };
@@ -30,6 +31,8 @@
 		403992661B63E865001AE92B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		403992691B63E865001AE92B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4039926B1B63E865001AE92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40593AD81B648BED00EF4B33 /* XFCTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCTConfig.h; sourceTree = "<group>"; };
+		40593AD91B648BED00EF4B33 /* XFCTConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCTConfig.m; sourceTree = "<group>"; };
 		40933E721B63E97800BAFDE3 /* XFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFMainViewController.h; sourceTree = "<group>"; };
 		40933E731B63E97800BAFDE3 /* XFMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFMainViewController.m; sourceTree = "<group>"; };
 		40933E741B63E97800BAFDE3 /* XFPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFPageViewController.h; sourceTree = "<group>"; };
@@ -109,6 +112,8 @@
 				40933E861B63EF0800BAFDE3 /* UIView+Extention.h */,
 				40933E871B63EF0800BAFDE3 /* UIView+Extention.m */,
 				40933E7B1B63EA3800BAFDE3 /* XFCoverTransition.h */,
+				40593AD81B648BED00EF4B33 /* XFCTConfig.h */,
+				40593AD91B648BED00EF4B33 /* XFCTConfig.m */,
 				40933E7C1B63EB3600BAFDE3 /* XFCoverTransitionManager.h */,
 				40933E7D1B63EB3600BAFDE3 /* XFCoverTransitionManager.m */,
 				40933E801B63ED3200BAFDE3 /* XFPresentationController.h */,
@@ -151,6 +156,7 @@
 				TargetAttributes = {
 					403992561B63E865001AE92B = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = KP5VDT362C;
 					};
 				};
 			};
@@ -198,6 +204,7 @@
 				4039925C1B63E865001AE92B /* main.m in Sources */,
 				40933E781B63E97800BAFDE3 /* XFPageViewController.m in Sources */,
 				40933E7E1B63EB3600BAFDE3 /* XFCoverTransitionManager.m in Sources */,
+				40593ADA1B648BED00EF4B33 /* XFCTConfig.m in Sources */,
 				40933E881B63EF0800BAFDE3 /* UIView+Extention.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,11 +317,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = XFCoverTransitionExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yizzuide.XFCoverTransitionExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -322,11 +332,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = XFCoverTransitionExample/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yizzuide.XFCoverTransitionExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

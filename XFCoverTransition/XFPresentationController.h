@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface XFPresentationController : UIPresentationController
-
+@property (nonatomic, assign) CGRect renderSize;
 @end

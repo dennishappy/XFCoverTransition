@@ -11,10 +11,10 @@
 @implementation XFPresentationController
 
 // 显示大小
-/* - (CGRect)frameOfPresentedViewInContainerView
+ - (CGRect)frameOfPresentedViewInContainerView
 {
-    return CGRectInset(self.containerView.bounds, 100, 100);
-} */
+    return self.renderSize;
+} 
 // 开始展示
 - (void)presentationTransitionWillBegin
 {

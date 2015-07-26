@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XFCTConfig.h"
 
 @interface XFAnimatedTransitioning : NSObject <UIViewControllerAnimatedTransitioning>
 
 @property (nonatomic, assign) BOOL presented;
-
+@property (nonatomic, assign) CGFloat animationDuration;
+@property (nonatomic, assign) XFCoverTransitionStyle transitionStyle;
 @end

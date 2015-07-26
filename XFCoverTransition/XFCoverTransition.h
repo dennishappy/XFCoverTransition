@@ -7,3 +7,5 @@
 //
 
 #import "XFCoverTransitionManager.h"
+#import "XFCTConfig.h"
+

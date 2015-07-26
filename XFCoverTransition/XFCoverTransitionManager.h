@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Singleton.h"
 
+@class XFCTConfig;
+
 @interface XFCoverTransitionManager : NSObject <UIViewControllerTransitioningDelegate>
 SingletonH(Manager)
+
+@property (nonatomic, strong) XFCTConfig *config;
 @end
