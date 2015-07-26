@@ -24,7 +24,6 @@
     if (self.presented) {
         UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
         UIView *containerView = toView.superview;
-        //        toView.layer.transform = CATransform3DMakeRotation(M_PI_2, 1, 1, 0);
 
         switch (self.transitionStyle) {
             case XFCoverTransitionStyleCoverTop2Bottom: {
@@ -33,6 +32,14 @@
             }
             case XFCoverTransitionStyleCoverRight2Left: {
                 toView.x = toView.width;
+                break;
+            }
+            case XFCoverTransitionStyleFlipY:{
+                toView.layer.transform = CATransform3DMakeRotation(M_PI_2, 1, 0, 0);
+                break;
+            }
+            case XFCoverTransitionStyleFlipZ:{
+                toView.layer.transform = CATransform3DMakeRotation(M_PI_2, 1, 1, 0);
                 break;
             }
             default: {
@@ -50,11 +57,17 @@
                     toView.x = (containerView.width - toView.width) * 0.5;
                     break;
                 }
+                case XFCoverTransitionStyleFlipY:
+                case XFCoverTransitionStyleFlipZ:
+                {
+                    toView.layer.transform = CATransform3DIdentity;
+                    break;
+                }
                 default: {
                     break;
                 }
             }
-            //            toView.layer.transform = CATransform3DIdentity;
+            //
         } completion:^(BOOL finished) {
             [transitionContext completeTransition:YES];
         }];
@@ -70,11 +83,18 @@
                     fromView.x = -fromView.width;
                     break;
                 }
+                case XFCoverTransitionStyleFlipY:{
+                    fromView.layer.transform = CATransform3DMakeRotation(M_PI_2, -1, 0, 0);
+                    break;
+                }
+                case XFCoverTransitionStyleFlipZ:{
+                    fromView.layer.transform = CATransform3DMakeRotation(M_PI_2, -1, -1, 0);
+                    break;
+                }
                 default: {
                     break;
                 }
             }
-            //            fromView.layer.transform = CATransform3DMakeRotation(M_PI_2, 1, 1, 0);
         } completion:^(BOOL finished) {
             [transitionContext completeTransition:YES];
         }];

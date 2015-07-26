@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, XFCoverTransitionStyle) {
+    // 2D Style
     XFCoverTransitionStyleCoverTop2Bottom = 0,
-    XFCoverTransitionStyleCoverRight2Left = 1
+    XFCoverTransitionStyleCoverRight2Left = 1,
+    
+    // 3D Style
+    XFCoverTransitionStyleFlipY = 9,
+    XFCoverTransitionStyleFlipZ = 10
 };
 
 @interface XFCTConfig : NSObject
