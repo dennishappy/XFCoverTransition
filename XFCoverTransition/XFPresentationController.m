@@ -11,16 +11,16 @@
 @implementation XFPresentationController
 
 // 显示大小
- - (CGRect)frameOfPresentedViewInContainerView
+ /* - (CGRect)frameOfPresentedViewInContainerView
 {
     return self.renderSize;
-} 
+} */ 
 // 开始展示
 - (void)presentationTransitionWillBegin
 {
     
     // 添加要展示的View到容器
-    self.presentedView.frame = self.containerView.bounds;
+    self.presentedView.frame = self.renderRect;
     [self.containerView addSubview:self.presentedView];
     
 }

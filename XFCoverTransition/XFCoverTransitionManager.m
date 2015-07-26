@@ -17,7 +17,7 @@ SingletonM(Manager)
 - (UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(UIViewController *)presenting sourceViewController:(UIViewController *)source
 {
     XFPresentationController *presentationController = [[XFPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
-    presentationController.renderSize = self.config ? self.config.renderSize : presentationController.containerView.bounds;
+    presentationController.renderRect = self.config ? self.config.renderRect : presentationController.containerView.bounds;
     return presentationController;
 }
 

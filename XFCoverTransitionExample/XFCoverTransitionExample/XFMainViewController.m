@@ -25,7 +25,7 @@
     XFPageViewController *page = [[XFPageViewController alloc] init];
     page.modalPresentationStyle = UIModalPresentationCustom;
     XFCoverTransitionManager *mgr = [XFCoverTransitionManager sharedManager];
-    mgr.config = [XFCTConfig configWithRenderSize:self.view.bounds animationDuration:2.0 transitionStyle:XFCoverTransitionStyleCoverTop2Bottom];
+    mgr.config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:2.0 transitionStyle:XFCoverTransitionStyleCoverTop2Bottom];
     page.transitioningDelegate = mgr;
     [self presentViewController:page animated:YES completion:nil];
     

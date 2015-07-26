@@ -23,6 +23,7 @@
 {
     if (self.presented) {
         UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
+        UIView *containerView = toView.superview;
         //        toView.layer.transform = CATransform3DMakeRotation(M_PI_2, 1, 1, 0);
 
         switch (self.transitionStyle) {
@@ -42,11 +43,11 @@
         [UIView animateWithDuration:self.animationDuration animations:^{
             switch (self.transitionStyle) {
                 case XFCoverTransitionStyleCoverTop2Bottom: {
-                    toView.y = 0;
+                    toView.y = (containerView.height - toView.height) * 0.5;
                     break;
                 }
                 case XFCoverTransitionStyleCoverRight2Left: {
-                    toView.x = 0;
+                    toView.x = (containerView.width - toView.width) * 0.5;
                     break;
                 }
                 default: {

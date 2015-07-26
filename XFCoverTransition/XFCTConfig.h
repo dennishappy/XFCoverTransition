@@ -14,9 +14,9 @@ typedef NS_ENUM(NSInteger, XFCoverTransitionStyle) {
 };
 
 @interface XFCTConfig : NSObject
-@property (nonatomic, assign) CGRect renderSize;
+@property (nonatomic, assign) CGRect renderRect;
 @property (nonatomic, assign) CGFloat animationDuration;
 @property (nonatomic, assign) XFCoverTransitionStyle transitionStyle;
 
-+ (instancetype)configWithRenderSize:(CGRect)renderSize animationDuration:(CGFloat)animDuration transitionStyle:(XFCoverTransitionStyle)style;
++ (instancetype)configWithRenderRect:(CGRect)renderRect animationDuration:(CGFloat)animDuration transitionStyle:(XFCoverTransitionStyle)style;
 @end

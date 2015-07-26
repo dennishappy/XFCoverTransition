@@ -10,10 +10,10 @@
 
 @implementation XFCTConfig
 
-+ (instancetype)configWithRenderSize:(CGRect)renderSize animationDuration:(CGFloat)animDuration transitionStyle:(XFCoverTransitionStyle)style
++ (instancetype)configWithRenderRect:(CGRect)renderRect animationDuration:(CGFloat)animDuration transitionStyle:(XFCoverTransitionStyle)style
 {
     XFCTConfig *config = [XFCTConfig new];
-    config.renderSize = renderSize;
+    config.renderRect = renderRect;
     config.animationDuration = animDuration;
     config.transitionStyle = style;
     return config;
