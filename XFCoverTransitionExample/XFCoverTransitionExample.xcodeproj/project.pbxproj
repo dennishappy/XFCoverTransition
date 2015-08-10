@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		4039925C1B63E865001AE92B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4039925B1B63E865001AE92B /* main.m */; };
 		4039925F1B63E865001AE92B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4039925E1B63E865001AE92B /* AppDelegate.m */; };
-		403992651B63E865001AE92B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403992631B63E865001AE92B /* Main.storyboard */; };
 		403992671B63E865001AE92B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 403992661B63E865001AE92B /* Assets.xcassets */; };
-		4039926A1B63E865001AE92B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 403992681B63E865001AE92B /* LaunchScreen.storyboard */; };
+		404D1C8C1B74BE0B001BBF55 /* main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 404D1C8B1B74BE0B001BBF55 /* main.storyboard */; };
+		405868941B77519600D73CC7 /* XFCoverTransitionGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 405868931B77519600D73CC7 /* XFCoverTransitionGesture.m */; };
 		40593ADA1B648BED00EF4B33 /* XFCTConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40593AD91B648BED00EF4B33 /* XFCTConfig.m */; };
 		40933E771B63E97800BAFDE3 /* XFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40933E731B63E97800BAFDE3 /* XFMainViewController.m */; };
 		40933E781B63E97800BAFDE3 /* XFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40933E751B63E97800BAFDE3 /* XFPageViewController.m */; };
@@ -27,10 +27,11 @@
 		4039925B1B63E865001AE92B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4039925D1B63E865001AE92B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4039925E1B63E865001AE92B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		403992641B63E865001AE92B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		403992661B63E865001AE92B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		403992691B63E865001AE92B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4039926B1B63E865001AE92B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		404D1C8B1B74BE0B001BBF55 /* main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = main.storyboard; sourceTree = "<group>"; };
+		405868921B77519600D73CC7 /* XFCoverTransitionGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCoverTransitionGesture.h; sourceTree = "<group>"; };
+		405868931B77519600D73CC7 /* XFCoverTransitionGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCoverTransitionGesture.m; sourceTree = "<group>"; };
 		40593AD81B648BED00EF4B33 /* XFCTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCTConfig.h; sourceTree = "<group>"; };
 		40593AD91B648BED00EF4B33 /* XFCTConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCTConfig.m; sourceTree = "<group>"; };
 		40933E721B63E97800BAFDE3 /* XFMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFMainViewController.h; sourceTree = "<group>"; };
@@ -83,13 +84,13 @@
 			children = (
 				4039925D1B63E865001AE92B /* AppDelegate.h */,
 				4039925E1B63E865001AE92B /* AppDelegate.m */,
-				403992631B63E865001AE92B /* Main.storyboard */,
 				40933E721B63E97800BAFDE3 /* XFMainViewController.h */,
 				40933E731B63E97800BAFDE3 /* XFMainViewController.m */,
 				40933E741B63E97800BAFDE3 /* XFPageViewController.h */,
 				40933E751B63E97800BAFDE3 /* XFPageViewController.m */,
 				40933E761B63E97800BAFDE3 /* XFPageViewController.xib */,
 				4039925A1B63E865001AE92B /* Supporting Files */,
+				404D1C8B1B74BE0B001BBF55 /* main.storyboard */,
 			);
 			path = XFCoverTransitionExample;
 			sourceTree = "<group>";
@@ -98,7 +99,6 @@
 			isa = PBXGroup;
 			children = (
 				403992661B63E865001AE92B /* Assets.xcassets */,
-				403992681B63E865001AE92B /* LaunchScreen.storyboard */,
 				4039926B1B63E865001AE92B /* Info.plist */,
 				4039925B1B63E865001AE92B /* main.m */,
 			);
@@ -114,6 +114,8 @@
 				40933E7B1B63EA3800BAFDE3 /* XFCoverTransition.h */,
 				40593AD81B648BED00EF4B33 /* XFCTConfig.h */,
 				40593AD91B648BED00EF4B33 /* XFCTConfig.m */,
+				405868921B77519600D73CC7 /* XFCoverTransitionGesture.h */,
+				405868931B77519600D73CC7 /* XFCoverTransitionGesture.m */,
 				40933E7C1B63EB3600BAFDE3 /* XFCoverTransitionManager.h */,
 				40933E7D1B63EB3600BAFDE3 /* XFCoverTransitionManager.m */,
 				40933E801B63ED3200BAFDE3 /* XFPresentationController.h */,
@@ -183,10 +185,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4039926A1B63E865001AE92B /* LaunchScreen.storyboard in Resources */,
 				403992671B63E865001AE92B /* Assets.xcassets in Resources */,
-				403992651B63E865001AE92B /* Main.storyboard in Resources */,
 				40933E791B63E97800BAFDE3 /* XFPageViewController.xib in Resources */,
+				404D1C8C1B74BE0B001BBF55 /* main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +202,7 @@
 				40933E821B63ED3200BAFDE3 /* XFPresentationController.m in Sources */,
 				40933E851B63ED8700BAFDE3 /* XFAnimatedTransitioning.m in Sources */,
 				40933E771B63E97800BAFDE3 /* XFMainViewController.m in Sources */,
+				405868941B77519600D73CC7 /* XFCoverTransitionGesture.m in Sources */,
 				4039925C1B63E865001AE92B /* main.m in Sources */,
 				40933E781B63E97800BAFDE3 /* XFPageViewController.m in Sources */,
 				40933E7E1B63EB3600BAFDE3 /* XFCoverTransitionManager.m in Sources */,
@@ -210,25 +212,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		403992631B63E865001AE92B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				403992641B63E865001AE92B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		403992681B63E865001AE92B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				403992691B63E865001AE92B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		4039926C1B63E865001AE92B /* Debug */ = {
@@ -317,6 +300,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = XFCoverTransitionExample/Info.plist;
@@ -332,6 +316,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = XFCoverTransitionExample/Info.plist;
