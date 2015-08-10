@@ -40,6 +40,10 @@
             instance.presentedViewController.view.x = instance.presentingViewController.view.width;
             break;
         }
+        case XFCoverTransitionStyleCoverLeft2Right: {
+            instance.presentedViewController.view.x = -instance.presentingViewController.view.width;
+            break;
+        }
         default: {
             break;
         }
@@ -51,37 +55,50 @@
 }
 
 - (void)drag2Present:(UIPanGestureRecognizer *)recognizer {
+    // 获取偏移量
     CGFloat tx = [recognizer translationInView:self.presentingViewController.view].x;
-    switch (self.config.transitionStyle) {
-        case XFCoverTransitionStyleCoverRight2Left: {
-            if (tx > 0) return;
-            
-            if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {
-                
-                CGFloat x = self.presentedViewController.view.x;
-                NSLog(@"%f",x);
-                // 如果没有滑动到1/3，返回
-                if (x > self.presentingViewController.view.width * 0.7) {
-                    [UIView animateWithDuration:0.25 animations:^{
-                        self.presentedViewController.view.transform = CGAffineTransformMakeTranslation(self.presentingViewController.view.width, 0);
-                    } completion:nil];
-                } else {
-                    [UIView animateWithDuration:0.25 animations:^{
-                        self.presentedViewController.view.transform = CGAffineTransformMakeTranslation(-self.presentingViewController.view.width, 0);
-                    } completion:nil];
-                }
-            } else if(recognizer.state == UIGestureRecognizerStateChanged) {
-                NSLog(@"%f",tx);
-                // 移动view
-                self.presentedViewController.view.transform = CGAffineTransformMakeTranslation(tx, 0);
-                if (self.presentedViewController.view.x > 320) {
-                    self.presentedViewController.view.x -= 320;
-                }
-            }
-            break;
+    // 当前modal view的x值
+    CGFloat x = self.presentedViewController.view.x;
+    
+    BOOL isCancel = false;
+    CGFloat destX = 0;
+    if (self.config.transitionStyle == XFCoverTransitionStyleCoverRight2Left) {
+        if (tx > 0) return;
+         // 如果没有滑动到1/3，返回
+        isCancel = x > self.presentingViewController.view.width * 0.7;
+        if (isCancel) {
+            destX = self.presentingViewController.view.width;
+        }else{
+            destX = -self.presentingViewController.view.width;
         }
-        default: {
-            break;
+        
+    }else if(self.config.transitionStyle == XFCoverTransitionStyleCoverLeft2Right){
+        if (tx < 0) return;
+        // 如果没有滑动到1/3，返回
+        isCancel = x < -self.presentingViewController.view.width * 0.7;
+        if (isCancel) {
+            destX = -self.presentingViewController.view.width;
+        }else{
+//            NSLog(@"isCancel -- %d",isCancel);
+            destX = self.presentingViewController.view.width;
+        }
+    }
+    
+    if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {
+       
+        [UIView animateWithDuration:0.25 animations:^{
+            self.presentedViewController.view.transform = CGAffineTransformMakeTranslation(destX, 0);
+        } completion:nil];
+    } else if(recognizer.state == UIGestureRecognizerStateChanged) {
+        // 移动view
+        self.presentedViewController.view.transform = CGAffineTransformMakeTranslation(tx, 0);
+        
+        // 当第二次拖动时，需要增减一个屏宽
+        if (self.presentedViewController.view.x > self.presentingViewController.view.width) {
+            self.presentedViewController.view.x -= self.presentingViewController.view.width;
+        }
+        if (self.presentedViewController.view.x < -self.presentingViewController.view.width) {
+            self.presentedViewController.view.x += self.presentingViewController.view.width;
         }
     }
 }
@@ -97,34 +114,43 @@
         self.lastVcView.image = [self.images lastObject];
         [window insertSubview:self.lastVcView atIndex:0];
     }
-    switch (self.config.transitionStyle) {
-        case XFCoverTransitionStyleCoverRight2Left: {
-            if (tx < 0) return;
-            
-            if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {
-                
-                CGFloat x = self.presentedViewController.view.x;
-                // 如果没有滑动到1/3，返回
-                if (x < self.presentingViewController.view.width * 0.3) {
-                    [UIView animateWithDuration:0.25 animations:^{
-                        self.presentedViewController.view.x = 0;
-                    } completion:nil];
-                } else {
-                    [UIView animateWithDuration:0.25 animations:^{
-                        self.presentedViewController.view.x = self.presentingViewController.view.width;
-                    } completion:^(BOOL finished) {
-                        [self.lastVcView removeFromSuperview];
-                    }];
-                }
-            } else if(recognizer.state == UIGestureRecognizerStateChanged){
-                // 移动view
-                self.presentedViewController.view.x = tx;
-            }
-            break;
+    
+    // 当前modal view的x值
+    CGFloat x = self.presentedViewController.view.x;
+    
+    BOOL isCancel = false;
+    CGFloat destX = 0;
+    if (self.config.transitionStyle == XFCoverTransitionStyleCoverRight2Left) {
+        if (tx < 0) return;
+        // 如果没有滑动到1/3，返回
+        isCancel = x < self.presentingViewController.view.width * 0.3;
+        if (isCancel) {
+            destX = 0;
+        }else{
+            destX = self.presentingViewController.view.width;
         }
-        default: {
-            break;
+    }else if(self.config.transitionStyle == XFCoverTransitionStyleCoverLeft2Right){
+        if (tx > 0) return;
+        // 如果没有滑动到1/3，返回
+        isCancel = x > -self.presentingViewController.view.width * 0.3;
+        if (isCancel) {
+            destX = 0;
+        }else{
+            destX = -self.presentingViewController.view.width;
         }
+    }
+    
+    if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            self.presentedViewController.view.x = destX;
+        } completion:^(BOOL finished) {
+            if(!isCancel)
+                [self.lastVcView removeFromSuperview];
+        }];
+    } else if(recognizer.state == UIGestureRecognizerStateChanged){
+        // 移动view
+        self.presentedViewController.view.x = tx;
     }
 }
 
