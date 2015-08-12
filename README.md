@@ -8,14 +8,14 @@ First, add `#import "XFCoverTransition.h` to your UIViewController,the `XFPageVi
 ```objc
 // 使用自定义modal
  XFPageViewController *page = [[XFPageViewController alloc] init];
-    page.modalPresentationStyle = UIModalPresentationCustom;
-    XFCoverTransitionManager *mgr = [XFCoverTransitionManager sharedManager];
-    mgr.config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.75 transitionStyle:XFCoverTransitionStyleCoverRight2Left];
-    page.transitioningDelegate = mgr;
-    [self presentViewController:page animated:YES completion:nil];
+ page.modalPresentationStyle = UIModalPresentationCustom;
+ XFCoverTransitionManager *mgr = [XFCoverTransitionManager sharedManager];
+ mgr.config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.75 transitionStyle:XFCoverTransitionStyleCoverRight2Left];
+ page.transitioningDelegate = mgr;
+ [self presentViewController:page animated:YES completion:nil];
  
  // 可以添加手势支持
  XFPageViewController *page = [[XFPageViewController alloc] init];
-    XFCTConfig *config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleCoverLeft2Right];
-    self.ctGesture = [XFCoverTransitionGesture gestureWithPresentingVC:self presentedVC:page config:config];
+ XFCTConfig *config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleCoverLeft2Right];
+ self.ctGesture = [XFCoverTransitionGesture gestureWithPresentingVC:self presentedVC:page config:config];
 ```
