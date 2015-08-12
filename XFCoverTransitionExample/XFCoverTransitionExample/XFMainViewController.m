@@ -23,12 +23,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    // 添加手势支持
     XFPageViewController *page = [[XFPageViewController alloc] init];
     XFCTConfig *config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleCoverLeft2Right];
     self.ctGesture = [XFCoverTransitionGesture gestureWithPresentingViewController:self presentedViewController:page config:config];
 }
 
 - (IBAction)modalAction:(id)sender {
+    // 自定义modal
     XFPageViewController *page = [[XFPageViewController alloc] init];
     page.modalPresentationStyle = UIModalPresentationCustom;
     XFCoverTransitionManager *mgr = [XFCoverTransitionManager sharedManager];

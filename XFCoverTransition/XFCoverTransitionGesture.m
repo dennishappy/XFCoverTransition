@@ -12,9 +12,9 @@
 
 @interface XFCoverTransitionGesture ()
 
-// 当前显示的主控制器
+// 当前显示的主控制器(presentingViewController)
 @property (nonatomic, weak) UIViewController *presentingViewController;
-// 将要被modal出来的控制器
+// 将要被modal出来的控制器(presentedViewController)
 @property (nonatomic, weak) UIViewController *presentedViewController;
 
 @property (nonatomic, strong) XFCTConfig *config;

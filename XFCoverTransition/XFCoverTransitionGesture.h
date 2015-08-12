@@ -17,8 +17,6 @@
  *  @param presentingVC 当前显示的主控制器
  *  @param presentedVC  将要被modal出来的控制器
  *  @param config       配置信息
- *
- *  @return 返回XFCoverTransitionGesture实例
  */
 + (instancetype)gestureWithPresentingViewController:(UIViewController *)presentingVC presentedViewController:(UIViewController *)presentedVC config:(XFCTConfig *)config;
 @end
