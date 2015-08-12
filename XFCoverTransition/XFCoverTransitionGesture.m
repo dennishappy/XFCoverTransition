@@ -39,6 +39,7 @@
     
     // 配置modal控制器的初始位置
     instance.config = config;
+    instance.config.animationDuration = config.animationDuration <= 0 ? 0.25 : config.animationDuration;
     instance.presentedViewController.view.frame = config.renderRect;
     switch (config.transitionStyle) {
         case XFCoverTransitionStyleCoverRight2Left: {
