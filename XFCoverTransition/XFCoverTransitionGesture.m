@@ -94,7 +94,7 @@
     
     if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {
        
-        [UIView animateWithDuration:0.25 animations:^{
+        [UIView animateWithDuration:self.config.animationDuration animations:^{
             self.presentedViewController.view.transform = CGAffineTransformMakeTranslation(destX, 0);
         } completion:nil];
     } else if(recognizer.state == UIGestureRecognizerStateChanged) {
@@ -150,7 +150,7 @@
     
     if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {
         
-        [UIView animateWithDuration:0.25 animations:^{
+        [UIView animateWithDuration:self.config.animationDuration animations:^{
             self.presentedViewController.view.x = destX;
         } completion:^(BOOL finished) {
             if(!isCancel)
