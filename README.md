@@ -1,5 +1,5 @@
 # XFCoverTransition
-Custom Modal transition between UIViewController,Make it more configurable
+Custom Modal transition between UIViewController,Make it more configurable.
 
 ![XFCoverTransition usage1](./Doc/usage1.gif)
 
