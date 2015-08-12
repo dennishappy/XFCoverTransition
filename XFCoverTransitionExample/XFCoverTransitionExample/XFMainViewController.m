@@ -15,6 +15,7 @@
 @interface XFMainViewController ()
 
 @property (nonatomic, strong) XFCoverTransitionGesture *ctGesture;
+@property (nonatomic, strong) XFCoverTransitionTouch *ctTouch;
 @end
 
 @implementation XFMainViewController
@@ -33,9 +34,9 @@
     // 自定义modal
     XFPageViewController *page = [[XFPageViewController alloc] init];
     page.modalPresentationStyle = UIModalPresentationCustom;
-    XFCoverTransitionManager *mgr = [XFCoverTransitionManager sharedManager];
-    mgr.config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.75 transitionStyle:XFCoverTransitionStyleCoverRight2Left];
-    page.transitioningDelegate = mgr;
+    XFCoverTransitionTouch *ctTouch = [XFCoverTransitionTouch sharedInstance];
+    ctTouch.config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.75 transitionStyle:XFCoverTransitionStyleCoverRight2Left];
+    page.transitioningDelegate = ctTouch;
     [self presentViewController:page animated:YES completion:nil];
 }
 

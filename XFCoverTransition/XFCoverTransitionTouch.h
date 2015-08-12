@@ -11,8 +11,8 @@
 
 @class XFCTConfig;
 
-@interface XFCoverTransitionManager : NSObject <UIViewControllerTransitioningDelegate>
-SingletonH(Manager)
+@interface XFCoverTransitionTouch : NSObject <UIViewControllerTransitioningDelegate>
+SingletonH(Instance)
 
 @property (nonatomic, strong) XFCTConfig *config;
 @end

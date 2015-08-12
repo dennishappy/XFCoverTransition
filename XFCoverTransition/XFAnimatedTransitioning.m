@@ -27,11 +27,15 @@
 
         switch (self.transitionStyle) {
             case XFCoverTransitionStyleCoverTop2Bottom: {
-                toView.y = -toView.height;
+                toView.y = -containerView.height;
                 break;
             }
             case XFCoverTransitionStyleCoverRight2Left: {
-                toView.x = toView.width;
+                toView.x = containerView.width;
+                break;
+            }
+            case XFCoverTransitionStyleCoverLeft2Right: {
+                toView.x = -containerView.width;
                 break;
             }
             case XFCoverTransitionStyleFlipY:{
@@ -54,6 +58,10 @@
                     break;
                 }
                 case XFCoverTransitionStyleCoverRight2Left: {
+                    toView.x = (containerView.width - toView.width) * 0.5;
+                    break;
+                }
+                case XFCoverTransitionStyleCoverLeft2Right: {
                     toView.x = (containerView.width - toView.width) * 0.5;
                     break;
                 }
@@ -81,6 +89,10 @@
                 }
                 case XFCoverTransitionStyleCoverRight2Left: {
                     fromView.x = -fromView.width;
+                    break;
+                }
+                case XFCoverTransitionStyleCoverLeft2Right: {
+                    fromView.x = fromView.width;
                     break;
                 }
                 case XFCoverTransitionStyleFlipY:{

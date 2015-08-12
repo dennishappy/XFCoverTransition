@@ -6,6 +6,6 @@
 //  Copyright © 2015年 yizzuide. All rights reserved.
 //
 
-#import "XFCoverTransitionManager.h"
+#import "XFCoverTransitionTouch.h"
 #import "XFCTConfig.h"
 

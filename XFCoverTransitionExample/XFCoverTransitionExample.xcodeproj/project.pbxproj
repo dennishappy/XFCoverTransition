@@ -16,13 +16,14 @@
 		40933E771B63E97800BAFDE3 /* XFMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40933E731B63E97800BAFDE3 /* XFMainViewController.m */; };
 		40933E781B63E97800BAFDE3 /* XFPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40933E751B63E97800BAFDE3 /* XFPageViewController.m */; };
 		40933E791B63E97800BAFDE3 /* XFPageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40933E761B63E97800BAFDE3 /* XFPageViewController.xib */; };
-		40933E7E1B63EB3600BAFDE3 /* XFCoverTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 40933E7D1B63EB3600BAFDE3 /* XFCoverTransitionManager.m */; };
+		40933E7E1B63EB3600BAFDE3 /* XFCoverTransitionTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = 40933E7D1B63EB3600BAFDE3 /* XFCoverTransitionTouch.m */; };
 		40933E821B63ED3200BAFDE3 /* XFPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40933E811B63ED3200BAFDE3 /* XFPresentationController.m */; };
 		40933E851B63ED8700BAFDE3 /* XFAnimatedTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 40933E841B63ED8700BAFDE3 /* XFAnimatedTransitioning.m */; };
 		40933E881B63EF0800BAFDE3 /* UIView+Extention.m in Sources */ = {isa = PBXBuildFile; fileRef = 40933E871B63EF0800BAFDE3 /* UIView+Extention.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		402DEA6C1B7B5F2200FD33E8 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		403992571B63E865001AE92B /* XFCoverTransitionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XFCoverTransitionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4039925B1B63E865001AE92B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4039925D1B63E865001AE92B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -40,9 +41,8 @@
 		40933E751B63E97800BAFDE3 /* XFPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFPageViewController.m; sourceTree = "<group>"; };
 		40933E761B63E97800BAFDE3 /* XFPageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XFPageViewController.xib; sourceTree = "<group>"; };
 		40933E7B1B63EA3800BAFDE3 /* XFCoverTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCoverTransition.h; sourceTree = "<group>"; };
-		40933E7C1B63EB3600BAFDE3 /* XFCoverTransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCoverTransitionManager.h; sourceTree = "<group>"; };
-		40933E7D1B63EB3600BAFDE3 /* XFCoverTransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCoverTransitionManager.m; sourceTree = "<group>"; };
-		40933E7F1B63EC3300BAFDE3 /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		40933E7C1B63EB3600BAFDE3 /* XFCoverTransitionTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCoverTransitionTouch.h; sourceTree = "<group>"; };
+		40933E7D1B63EB3600BAFDE3 /* XFCoverTransitionTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCoverTransitionTouch.m; sourceTree = "<group>"; };
 		40933E801B63ED3200BAFDE3 /* XFPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFPresentationController.h; sourceTree = "<group>"; };
 		40933E811B63ED3200BAFDE3 /* XFPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFPresentationController.m; sourceTree = "<group>"; };
 		40933E831B63ED8700BAFDE3 /* XFAnimatedTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFAnimatedTransitioning.h; sourceTree = "<group>"; };
@@ -108,7 +108,7 @@
 		40933E7A1B63EA3800BAFDE3 /* XFCoverTransition */ = {
 			isa = PBXGroup;
 			children = (
-				40933E7F1B63EC3300BAFDE3 /* Singleton.h */,
+				402DEA6C1B7B5F2200FD33E8 /* Singleton.h */,
 				40933E861B63EF0800BAFDE3 /* UIView+Extention.h */,
 				40933E871B63EF0800BAFDE3 /* UIView+Extention.m */,
 				40933E7B1B63EA3800BAFDE3 /* XFCoverTransition.h */,
@@ -116,8 +116,8 @@
 				40593AD91B648BED00EF4B33 /* XFCTConfig.m */,
 				405868921B77519600D73CC7 /* XFCoverTransitionGesture.h */,
 				405868931B77519600D73CC7 /* XFCoverTransitionGesture.m */,
-				40933E7C1B63EB3600BAFDE3 /* XFCoverTransitionManager.h */,
-				40933E7D1B63EB3600BAFDE3 /* XFCoverTransitionManager.m */,
+				40933E7C1B63EB3600BAFDE3 /* XFCoverTransitionTouch.h */,
+				40933E7D1B63EB3600BAFDE3 /* XFCoverTransitionTouch.m */,
 				40933E801B63ED3200BAFDE3 /* XFPresentationController.h */,
 				40933E811B63ED3200BAFDE3 /* XFPresentationController.m */,
 				40933E831B63ED8700BAFDE3 /* XFAnimatedTransitioning.h */,
@@ -205,7 +205,7 @@
 				405868941B77519600D73CC7 /* XFCoverTransitionGesture.m in Sources */,
 				4039925C1B63E865001AE92B /* main.m in Sources */,
 				40933E781B63E97800BAFDE3 /* XFPageViewController.m in Sources */,
-				40933E7E1B63EB3600BAFDE3 /* XFCoverTransitionManager.m in Sources */,
+				40933E7E1B63EB3600BAFDE3 /* XFCoverTransitionTouch.m in Sources */,
 				40593ADA1B648BED00EF4B33 /* XFCTConfig.m in Sources */,
 				40933E881B63EF0800BAFDE3 /* UIView+Extention.m in Sources */,
 			);

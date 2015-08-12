@@ -6,13 +6,13 @@
 //  Copyright © 2015年 yizzuide. All rights reserved.
 //
 
-#import "XFCoverTransitionManager.h"
+#import "XFCoverTransitionTouch.h"
 #import "XFPresentationController.h"
 #import "XFAnimatedTransitioning.h"
 #import "XFCTConfig.h"
 
-@implementation XFCoverTransitionManager
-SingletonM(Manager)
+@implementation XFCoverTransitionTouch
+SingletonM(Instance)
 
 - (UIPresentationController *)presentationControllerForPresentedViewController:(UIViewController *)presented presentingViewController:(UIViewController *)presenting sourceViewController:(UIViewController *)source
 {
