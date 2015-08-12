@@ -12,6 +12,11 @@
 
 @interface XFCoverTransitionGesture ()
 
+// 当前显示的主控制器
+@property (nonatomic, weak) UIViewController *presentingViewController;
+// 将要被modal出来的控制器
+@property (nonatomic, weak) UIViewController *presentedViewController;
+
 @property (nonatomic, strong) XFCTConfig *config;
 @property (nonatomic, strong) NSMutableArray *images;
 @property (nonatomic, strong) UIImageView *lastVcView;
@@ -19,7 +24,7 @@
 
 @implementation XFCoverTransitionGesture
 
-+ (instancetype)gestureWithPresentingVC:(UIViewController *)presentingVC presentedVC:(UIViewController *)presentedVC config:(XFCTConfig *)config {
++ (instancetype)gestureWithPresentingViewController:(UIViewController *)presentingVC presentedViewController:(UIViewController *)presentedVC config:(XFCTConfig *)config {
     
     XFCoverTransitionGesture *instance = [[XFCoverTransitionGesture alloc] init];
 	// 创建modal控制器的显示手势

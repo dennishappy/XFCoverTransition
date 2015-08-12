@@ -11,8 +11,14 @@
 @class XFCTConfig;
 
 @interface XFCoverTransitionGesture : NSObject
-@property (nonatomic, weak) UIViewController *presentingViewController;
-@property (nonatomic, weak) UIViewController *presentedViewController;
-
-+ (instancetype)gestureWithPresentingVC:(UIViewController *)presentingVC presentedVC:(UIViewController *)presentedVC config:(XFCTConfig *)config;
+/**
+ *  添加一个支持手势拖动modal控制器，创建这个实例要对其强引用，否则不会生效
+ *
+ *  @param presentingVC 当前显示的主控制器
+ *  @param presentedVC  将要被modal出来的控制器
+ *  @param config       配置信息
+ *
+ *  @return 返回XFCoverTransitionGesture实例
+ */
++ (instancetype)gestureWithPresentingViewController:(UIViewController *)presentingVC presentedViewController:(UIViewController *)presentedVC config:(XFCTConfig *)config;
 @end

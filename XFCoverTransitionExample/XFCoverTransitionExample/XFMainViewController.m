@@ -25,7 +25,7 @@
     
     XFPageViewController *page = [[XFPageViewController alloc] init];
     XFCTConfig *config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleCoverLeft2Right];
-    self.ctGesture = [XFCoverTransitionGesture gestureWithPresentingVC:self presentedVC:page config:config];
+    self.ctGesture = [XFCoverTransitionGesture gestureWithPresentingViewController:self presentedViewController:page config:config];
 }
 
 - (IBAction)modalAction:(id)sender {
