@@ -48,6 +48,7 @@
             break;
         }
     }
+    // 添加子控制器
     [instance.presentingViewController.view addSubview:instance.presentedViewController.view];
     [instance.presentingViewController addChildViewController:presentedVC];
     
@@ -60,7 +61,9 @@
     // 当前modal view的x值
     CGFloat x = self.presentedViewController.view.x;
     
+    // 拖动是否取消
     BOOL isCancel = false;
+    // 目标x值
     CGFloat destX = 0;
     if (self.config.transitionStyle == XFCoverTransitionStyleCoverRight2Left) {
         if (tx > 0) return;
