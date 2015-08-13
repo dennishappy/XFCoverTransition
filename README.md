@@ -17,3 +17,21 @@ Add `#import "XFCoverTransition.h` to your UIViewController,the `XFPageViewContr
  page.transitioningDelegate = ctTouch;
  [self presentViewController:page animated:YES completion:nil];
 ```
+###全手势模拟modal效果
+Also add `#import "XFCoverTransition.h` to your UIViewController,the `XFPageViewController` is example of your presentedViewController,create `XFCoverTransitionGesture` main class,using `XFCTConfig` class to config your transition.
+```objc
+@interface XFMainViewController ()
+@property (nonatomic, strong) XFCoverTransitionGesture *ctGesture;
+@end
+
+@implementation XFMainViewController
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    XFPageViewController *page = [[XFPageViewController alloc] init];
+    XFCTConfig *config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleCoverRight2Left];
+    self.ctGesture = [XFCoverTransitionGesture gestureWithPresentingViewController:self presentedViewController:page config:config];
+}
+@end
+
+```
