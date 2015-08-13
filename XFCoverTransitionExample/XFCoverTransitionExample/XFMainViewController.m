@@ -10,12 +10,10 @@
 #import "XFPageViewController.h"
 #import "XFCoverTransition.h"
 #import "UIView+Extention.h"
-#import "XFCoverTransitionGesture.h"
 
 @interface XFMainViewController ()
 
 @property (nonatomic, strong) XFCoverTransitionGesture *ctGesture;
-@property (nonatomic, strong) XFCoverTransitionTouch *ctTouch;
 @end
 
 @implementation XFMainViewController
@@ -26,7 +24,7 @@
     
     // 添加手势支持
     /*XFPageViewController *page = [[XFPageViewController alloc] init];
-    XFCTConfig *config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleCoverRight2Left];
+    XFCTConfig *config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleCoverBottom2Top];
     self.ctGesture = [XFCoverTransitionGesture gestureWithPresentingViewController:self presentedViewController:page config:config];*/
 }
 

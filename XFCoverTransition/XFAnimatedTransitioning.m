@@ -30,6 +30,10 @@
                 toView.y = -containerView.height;
                 break;
             }
+            case XFCoverTransitionStyleCoverBottom2Top: {
+                toView.y = containerView.height;
+                break;
+            }
             case XFCoverTransitionStyleCoverRight2Left: {
                 toView.x = containerView.width;
                 break;
@@ -53,14 +57,12 @@
         
         [UIView animateWithDuration:self.animationDuration animations:^{
             switch (self.transitionStyle) {
-                case XFCoverTransitionStyleCoverTop2Bottom: {
+                case XFCoverTransitionStyleCoverTop2Bottom:
+                case XFCoverTransitionStyleCoverBottom2Top:{
                     toView.y = (containerView.height - toView.height) * 0.5;
                     break;
                 }
-                case XFCoverTransitionStyleCoverRight2Left: {
-                    toView.x = (containerView.width - toView.width) * 0.5;
-                    break;
-                }
+                case XFCoverTransitionStyleCoverRight2Left:
                 case XFCoverTransitionStyleCoverLeft2Right: {
                     toView.x = (containerView.width - toView.width) * 0.5;
                     break;
@@ -75,7 +77,6 @@
                     break;
                 }
             }
-            //
         } completion:^(BOOL finished) {
             [transitionContext completeTransition:YES];
         }];
@@ -85,6 +86,10 @@
             switch (self.transitionStyle) {
                 case XFCoverTransitionStyleCoverTop2Bottom: {
                     fromView.y = -fromView.height;
+                    break;
+                }
+                case XFCoverTransitionStyleCoverBottom2Top: {
+                    fromView.y = fromView.height;
                     break;
                 }
                 case XFCoverTransitionStyleCoverRight2Left: {

@@ -10,13 +10,14 @@
 
 typedef NS_ENUM(NSInteger, XFCoverTransitionStyle) {
     // 2D Style
-    XFCoverTransitionStyleCoverTop2Bottom = 0,
-    XFCoverTransitionStyleCoverRight2Left = 1,
-    XFCoverTransitionStyleCoverLeft2Right = 2,
+    XFCoverTransitionStyleCoverTop2Bottom,
+    XFCoverTransitionStyleCoverBottom2Top,
+    XFCoverTransitionStyleCoverLeft2Right,
+    XFCoverTransitionStyleCoverRight2Left,
     
-    // 3D Style
-    XFCoverTransitionStyleFlipY = 9,
-    XFCoverTransitionStyleFlipZ = 10
+    // 3D Style(不支持手势移除）
+    XFCoverTransitionStyleFlipY,
+    XFCoverTransitionStyleFlipZ
 };
 
 @interface XFCTConfig : NSObject
