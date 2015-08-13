@@ -1,21 +1,37 @@
 # XFCoverTransition
 Custom Modal transition between UIViewController,Make it more configurable.
 
-![XFCoverTransition usage1](./Doc/usage1.gif)
+![XFCoverTransition usage_touch](./Doc/usage1.gif)
 
 ##Usage
-First, add `#import "XFCoverTransition.h` to your UIViewController,the `XFPageViewController` is example of your presentedViewController,create `XFCoverTransitionTouch` main class,using `XFCTConfig` class to config your transition.
+###自定义modal
+Add `#import "XFCoverTransition.h` to your UIViewController,the `XFPageViewController` is example of your presentedViewController,create `XFCoverTransitionTouch` main class,using `XFCTConfig` class to config your transition.
 ```objc
-// 使用自定义modal
+// 自定义modal
  XFPageViewController *page = [[XFPageViewController alloc] init];
  page.modalPresentationStyle = UIModalPresentationCustom;
  XFCoverTransitionTouch *ctTouch = [XFCoverTransitionTouch sharedInstance];
- ctTouch.config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.75 transitionStyle:XFCoverTransitionStyleCoverRight2Left];
+ ctTouch.config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleCoverRight2Left];
+ // 添加支持手势
+ ctTouch.config.onlyForModalVCGestureDissmiss = YES;
  page.transitioningDelegate = ctTouch;
  [self presentViewController:page animated:YES completion:nil];
- 
- // 可以添加手势支持
- XFPageViewController *page = [[XFPageViewController alloc] init];
- XFCTConfig *config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleCoverLeft2Right];
- self.ctGesture = [XFCoverTransitionGesture gestureWithPresentingVC:self presentedVC:page config:config];
+```
+###全手势模拟modal效果
+Also add `#import "XFCoverTransition.h` to your UIViewController,the `XFPageViewController` is example of your presentedViewController,create `XFCoverTransitionGesture` main class,using `XFCTConfig` class to config your transition.
+```objc
+@interface XFMainViewController ()
+@property (nonatomic, strong) XFCoverTransitionGesture *ctGesture;
+@end
+
+@implementation XFMainViewController
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    XFPageViewController *page = [[XFPageViewController alloc] init];
+    XFCTConfig *config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleCoverRight2Left];
+    self.ctGesture = [XFCoverTransitionGesture gestureWithPresentingViewController:self presentedViewController:page config:config];
+}
+@end
+
 ```
