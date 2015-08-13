@@ -10,6 +10,12 @@
 #import "XFPresentationController.h"
 #import "XFAnimatedTransitioning.h"
 #import "XFCTConfig.h"
+#import "XFCoverTransitionGesture.h"
+
+@interface XFCoverTransitionTouch ()
+
+@property (nonatomic, strong) XFCoverTransitionGesture *ctGesture;
+@end
 
 @implementation XFCoverTransitionTouch
 SingletonM(Instance)
@@ -18,6 +24,11 @@ SingletonM(Instance)
 {
     XFPresentationController *presentationController = [[XFPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
     presentationController.renderRect = self.config ? self.config.renderRect : presentationController.containerView.bounds;
+    // 添加手势移除功能
+    XFCoverTransitionStyle style = self.config.transitionStyle;
+    if (self.config.isOnlyForModalVCGestureDissmiss && (style == XFCoverTransitionStyleCoverRight2Left || style == XFCoverTransitionStyleCoverLeft2Right)) {
+        self.ctGesture = [XFCoverTransitionGesture gestureWithPresentingViewController:source presentedViewController:presented config:self.config];
+    }
     return presentationController;
 }
 

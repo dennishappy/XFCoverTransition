@@ -27,13 +27,7 @@
 + (instancetype)gestureWithPresentingViewController:(UIViewController *)presentingVC presentedViewController:(UIViewController *)presentedVC config:(XFCTConfig *)config {
     
     XFCoverTransitionGesture *instance = [[XFCoverTransitionGesture alloc] init];
-	// 创建modal控制器的显示手势
-    UIPanGestureRecognizer *presentingPan = [[UIPanGestureRecognizer alloc] initWithTarget:instance action:@selector(drag2Present:)];
-    [presentingVC.view addGestureRecognizer:presentingPan];
-    // 创建被modal控制器的隐藏手势
-    UIPanGestureRecognizer *presentedPan = [[UIPanGestureRecognizer alloc] initWithTarget:instance action:@selector(drag2dismiss:)];
-    [presentedVC.view addGestureRecognizer:presentedPan];
-    
+	
     instance.presentingViewController = presentingVC;
     instance.presentedViewController = presentedVC;
     
@@ -41,22 +35,41 @@
     instance.config = config;
     instance.config.animationDuration = config.animationDuration <= 0 ? 0.25 : config.animationDuration;
     instance.presentedViewController.view.frame = config.renderRect;
-    switch (config.transitionStyle) {
-        case XFCoverTransitionStyleCoverRight2Left: {
-            instance.presentedViewController.view.x = instance.presentingViewController.view.width;
-            break;
-        }
-        case XFCoverTransitionStyleCoverLeft2Right: {
-            instance.presentedViewController.view.x = -instance.presentingViewController.view.width;
-            break;
-        }
-        default: {
-            break;
+    
+    
+    
+    // 如果只支持手势移除
+    if(config.isOnlyForModalVCGestureDissmiss){
+        
+    }else // 否则是手势添加与移除
+    {
+        // 创建modal控制器的显示手势
+        UIPanGestureRecognizer *presentingPan = [[UIPanGestureRecognizer alloc] initWithTarget:instance action:@selector(drag2Present:)];
+        [presentingVC.view addGestureRecognizer:presentingPan];
+        
+        // 添加到子View
+        [instance.presentingViewController.view addSubview:instance.presentedViewController.view];
+        // 添加到子控制器
+        [instance.presentingViewController addChildViewController:presentedVC];
+        
+        // 设置起始位置
+        switch (config.transitionStyle) {
+            case XFCoverTransitionStyleCoverRight2Left: {
+                instance.presentedViewController.view.x = instance.presentingViewController.view.width;
+                break;
+            }
+            case XFCoverTransitionStyleCoverLeft2Right: {
+                instance.presentedViewController.view.x = -instance.presentingViewController.view.width;
+                break;
+            }
+            default: {
+                break;
+            }
         }
     }
-    // 添加子控制器
-    [instance.presentingViewController.view addSubview:instance.presentedViewController.view];
-    [instance.presentingViewController addChildViewController:presentedVC];
+    // 创建被modal控制器的隐藏手势
+    UIPanGestureRecognizer *presentedPan = [[UIPanGestureRecognizer alloc] initWithTarget:instance action:@selector(drag2dismiss:)];
+    [presentedVC.view addGestureRecognizer:presentedPan];
     
     return instance;
 }
@@ -68,7 +81,7 @@
     CGFloat x = self.presentedViewController.view.x;
     
     // 拖动是否取消
-    BOOL isCancel = false;
+    bool isCancel = false;
     // 目标x值
     CGFloat destX = 0;
     if (self.config.transitionStyle == XFCoverTransitionStyleCoverRight2Left) {
@@ -116,18 +129,20 @@
     CGFloat tx = [recognizer translationInView:self.presentedViewController.view].x;
     // 创建视图截屏
     if (recognizer.state == UIGestureRecognizerStateBegan) {
-        [self createScreenShot];
-        
-        UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        // 添加截图到最后面
-        self.lastVcView.image = [self.images lastObject];
-        [window insertSubview:self.lastVcView atIndex:0];
+        if (!self.config.isOnlyForModalVCGestureDissmiss) {
+            [self createScreenShot];
+            
+            UIWindow *window = [UIApplication sharedApplication].keyWindow;
+            // 添加截图到最后面
+            self.lastVcView.image = [self.images lastObject];
+            [window insertSubview:self.lastVcView atIndex:0];
+        }
     }
     
     // 当前modal view的x值
     CGFloat x = self.presentedViewController.view.x;
     
-    BOOL isCancel = false;
+    bool isCancel = false;
     CGFloat destX = 0;
     if (self.config.transitionStyle == XFCoverTransitionStyleCoverRight2Left) {
         if (tx < 0) return;
@@ -150,12 +165,16 @@
     }
     
     if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {
-        
         [UIView animateWithDuration:self.config.animationDuration animations:^{
             self.presentedViewController.view.x = destX;
         } completion:^(BOOL finished) {
-            if(!isCancel)
-                [self.lastVcView removeFromSuperview];
+            if (self.config.isOnlyForModalVCGestureDissmiss) {
+                if(!isCancel)
+                    [self.presentedViewController dismissViewControllerAnimated:NO completion:nil];
+            }else{
+                if(!isCancel)
+                    [self.lastVcView removeFromSuperview];
+            }
         }];
     } else if(recognizer.state == UIGestureRecognizerStateChanged){
         // 移动view

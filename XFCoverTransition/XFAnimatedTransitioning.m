@@ -88,11 +88,11 @@
                     break;
                 }
                 case XFCoverTransitionStyleCoverRight2Left: {
-                    fromView.x = -fromView.width;
+                    fromView.x = fromView.width;
                     break;
                 }
                 case XFCoverTransitionStyleCoverLeft2Right: {
-                    fromView.x = fromView.width;
+                    fromView.x = -fromView.width;
                     break;
                 }
                 case XFCoverTransitionStyleFlipY:{

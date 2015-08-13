@@ -22,6 +22,15 @@
     // 添加要展示的View到容器
     self.presentedView.frame = self.renderRect;
     [self.containerView addSubview:self.presentedView];
+}
+
+- (void)presentationTransitionDidEnd:(BOOL)completed
+{
+    
+}
+
+- (void)dismissalTransitionWillBegin
+{
     
 }
 // 结束展示

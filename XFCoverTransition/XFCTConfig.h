@@ -23,6 +23,10 @@ typedef NS_ENUM(NSInteger, XFCoverTransitionStyle) {
 @property (nonatomic, assign) CGRect renderRect;
 @property (nonatomic, assign) CGFloat animationDuration;
 @property (nonatomic, assign) XFCoverTransitionStyle transitionStyle;
+/**
+ *  是否用于手势移除modal控制器
+ */
+@property (nonatomic, assign,getter=isOnlyForModalVCGestureDissmiss) BOOL onlyForModalVCGestureDissmiss;
 
 + (instancetype)configWithRenderRect:(CGRect)renderRect animationDuration:(CGFloat)animDuration transitionStyle:(XFCoverTransitionStyle)style;
 @end
