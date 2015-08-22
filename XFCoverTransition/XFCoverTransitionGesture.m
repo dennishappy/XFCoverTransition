@@ -54,19 +54,19 @@
         
         // 设置起始位置
         switch (config.transitionStyle) {
-            case XFCoverTransitionStyleCoverRight2Left: {
+            case XFCoverTransitionStyleRight2Left: {
                 instance.presentedViewController.view.x = instance.presentingViewController.view.width;
                 break;
             }
-            case XFCoverTransitionStyleCoverLeft2Right: {
+            case XFCoverTransitionStyleLeft2Right: {
                 instance.presentedViewController.view.x = -instance.presentingViewController.view.width;
                 break;
             }
-            case XFCoverTransitionStyleCoverTop2Bottom: {
+            case XFCoverTransitionStyleTop2Bottom: {
                 instance.presentedViewController.view.y = -instance.presentingViewController.view.height;
                 break;
             }
-            case XFCoverTransitionStyleCoverBottom2Top: {
+            case XFCoverTransitionStyleBottom2Top: {
                 instance.presentedViewController.view.y = instance.presentingViewController.view.height;
                 break;
             }
@@ -96,7 +96,7 @@
     // 目标值
     CGFloat destX = 0;
     CGFloat destY = 0;
-    if (self.config.transitionStyle == XFCoverTransitionStyleCoverRight2Left) {
+    if (self.config.transitionStyle == XFCoverTransitionStyleRight2Left) {
         if (tx > 0) return;
          // 如果没有滑动到1/3，返回
         isCancel = x > self.presentingViewController.view.width * 0.7;
@@ -106,7 +106,7 @@
             destX = -self.presentingViewController.view.width;
         }
         
-    }else if(self.config.transitionStyle == XFCoverTransitionStyleCoverLeft2Right){
+    }else if(self.config.transitionStyle == XFCoverTransitionStyleLeft2Right){
         if (tx < 0) return;
         // 如果没有滑动到1/3，返回
         isCancel = x < -self.presentingViewController.view.width * 0.7;
@@ -115,7 +115,7 @@
         }else{
             destX = self.presentingViewController.view.width;
         }
-    }else if(self.config.transitionStyle == XFCoverTransitionStyleCoverBottom2Top){
+    }else if(self.config.transitionStyle == XFCoverTransitionStyleBottom2Top){
         if (ty > 0) return;
         isCancel = y > self.presentingViewController.view.height * 0.7;
         if (isCancel) {
@@ -123,7 +123,7 @@
         }else{
             destY = -self.presentingViewController.view.height;
         }
-    }else if(self.config.transitionStyle == XFCoverTransitionStyleCoverTop2Bottom){
+    }else if(self.config.transitionStyle == XFCoverTransitionStyleTop2Bottom){
         if (ty < 0) return;
         isCancel = y < -self.presentingViewController.view.height * 0.7;
         if (isCancel) {
@@ -136,13 +136,13 @@
     if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {
        
         [UIView animateWithDuration:self.config.animationDuration animations:^{
-            if(self.config.transitionStyle == XFCoverTransitionStyleCoverLeft2Right || self.config.transitionStyle == XFCoverTransitionStyleCoverRight2Left)
+            if(self.config.transitionStyle == XFCoverTransitionStyleLeft2Right || self.config.transitionStyle == XFCoverTransitionStyleRight2Left)
                 self.presentedViewController.view.transform = CGAffineTransformMakeTranslation(destX, 0);
-            if(self.config.transitionStyle == XFCoverTransitionStyleCoverTop2Bottom || self.config.transitionStyle == XFCoverTransitionStyleCoverBottom2Top)
+            if(self.config.transitionStyle == XFCoverTransitionStyleTop2Bottom || self.config.transitionStyle == XFCoverTransitionStyleBottom2Top)
                 self.presentedViewController.view.transform = CGAffineTransformMakeTranslation(0, destY);
         } completion:nil];
     } else if(recognizer.state == UIGestureRecognizerStateChanged) {
-        if(self.config.transitionStyle == XFCoverTransitionStyleCoverLeft2Right || self.config.transitionStyle == XFCoverTransitionStyleCoverRight2Left){
+        if(self.config.transitionStyle == XFCoverTransitionStyleLeft2Right || self.config.transitionStyle == XFCoverTransitionStyleRight2Left){
             // 移动view
             self.presentedViewController.view.transform = CGAffineTransformMakeTranslation(tx, 0);
             
@@ -154,7 +154,7 @@
                 self.presentedViewController.view.x += self.presentingViewController.view.width;
             }
         }
-        if(self.config.transitionStyle == XFCoverTransitionStyleCoverTop2Bottom || self.config.transitionStyle == XFCoverTransitionStyleCoverBottom2Top){
+        if(self.config.transitionStyle == XFCoverTransitionStyleTop2Bottom || self.config.transitionStyle == XFCoverTransitionStyleBottom2Top){
             self.presentedViewController.view.transform = CGAffineTransformMakeTranslation(0, ty);
             
             if (self.presentedViewController.view.y > self.presentingViewController.view.height) {
@@ -192,7 +192,7 @@
     bool isCancel = false;
     CGFloat destX = 0;
     CGFloat destY = 0;
-    if (self.config.transitionStyle == XFCoverTransitionStyleCoverRight2Left) {
+    if (self.config.transitionStyle == XFCoverTransitionStyleRight2Left) {
         if (tx < 0) return;
         // 如果没有滑动到1/3，返回
         isCancel = x < self.presentingViewController.view.width * 0.3;
@@ -201,7 +201,7 @@
         }else{
             destX = self.presentingViewController.view.width;
         }
-    }else if(self.config.transitionStyle == XFCoverTransitionStyleCoverLeft2Right){
+    }else if(self.config.transitionStyle == XFCoverTransitionStyleLeft2Right){
         if (tx > 0) return;
         // 如果没有滑动到1/3，返回
         isCancel = x > -self.presentingViewController.view.width * 0.3;
@@ -210,7 +210,7 @@
         }else{
             destX = -self.presentingViewController.view.width;
         }
-    }else if(self.config.transitionStyle == XFCoverTransitionStyleCoverBottom2Top){
+    }else if(self.config.transitionStyle == XFCoverTransitionStyleBottom2Top){
         if (ty < 0) return;
         isCancel = y < self.presentingViewController.view.height * 0.3;
         if (isCancel) {
@@ -218,7 +218,7 @@
         }else{
             destY = self.presentingViewController.view.height;
         }
-    }else if(self.config.transitionStyle == XFCoverTransitionStyleCoverTop2Bottom){
+    }else if(self.config.transitionStyle == XFCoverTransitionStyleTop2Bottom){
         if (ty > 0) return;
         isCancel = y > -self.presentingViewController.view.height * 0.3;
         if (isCancel) {
@@ -230,9 +230,9 @@
     
     if (recognizer.state == UIGestureRecognizerStateEnded || recognizer.state == UIGestureRecognizerStateCancelled) {
         [UIView animateWithDuration:self.config.animationDuration animations:^{
-            if(self.config.transitionStyle == XFCoverTransitionStyleCoverLeft2Right || self.config.transitionStyle == XFCoverTransitionStyleCoverRight2Left)
+            if(self.config.transitionStyle == XFCoverTransitionStyleLeft2Right || self.config.transitionStyle == XFCoverTransitionStyleRight2Left)
                 self.presentedViewController.view.x = destX;
-            if(self.config.transitionStyle == XFCoverTransitionStyleCoverTop2Bottom || self.config.transitionStyle == XFCoverTransitionStyleCoverBottom2Top)
+            if(self.config.transitionStyle == XFCoverTransitionStyleTop2Bottom || self.config.transitionStyle == XFCoverTransitionStyleBottom2Top)
                 self.presentedViewController.view.y = destY;
         } completion:^(BOOL finished) {
             if (self.config.isOnlyForModalVCGestureDissmiss) {
@@ -245,9 +245,9 @@
         }];
     } else if(recognizer.state == UIGestureRecognizerStateChanged){
         // 移动view
-        if(self.config.transitionStyle == XFCoverTransitionStyleCoverLeft2Right || self.config.transitionStyle == XFCoverTransitionStyleCoverRight2Left)
+        if(self.config.transitionStyle == XFCoverTransitionStyleLeft2Right || self.config.transitionStyle == XFCoverTransitionStyleRight2Left)
             self.presentedViewController.view.x = tx;
-        if(self.config.transitionStyle == XFCoverTransitionStyleCoverTop2Bottom || self.config.transitionStyle == XFCoverTransitionStyleCoverBottom2Top)
+        if(self.config.transitionStyle == XFCoverTransitionStyleTop2Bottom || self.config.transitionStyle == XFCoverTransitionStyleBottom2Top)
             self.presentedViewController.view.y = ty;
     }
 }

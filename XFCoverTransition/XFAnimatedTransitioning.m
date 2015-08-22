@@ -26,19 +26,19 @@
         UIView *containerView = toView.superview;
 
         switch (self.transitionStyle) {
-            case XFCoverTransitionStyleCoverTop2Bottom: {
+            case XFCoverTransitionStyleTop2Bottom: {
                 toView.y = -containerView.height;
                 break;
             }
-            case XFCoverTransitionStyleCoverBottom2Top: {
+            case XFCoverTransitionStyleBottom2Top: {
                 toView.y = containerView.height;
                 break;
             }
-            case XFCoverTransitionStyleCoverRight2Left: {
+            case XFCoverTransitionStyleRight2Left: {
                 toView.x = containerView.width;
                 break;
             }
-            case XFCoverTransitionStyleCoverLeft2Right: {
+            case XFCoverTransitionStyleLeft2Right: {
                 toView.x = -containerView.width;
                 break;
             }
@@ -57,13 +57,13 @@
         
         [UIView animateWithDuration:self.animationDuration animations:^{
             switch (self.transitionStyle) {
-                case XFCoverTransitionStyleCoverTop2Bottom:
-                case XFCoverTransitionStyleCoverBottom2Top:{
+                case XFCoverTransitionStyleTop2Bottom:
+                case XFCoverTransitionStyleBottom2Top:{
                     toView.y = (containerView.height - toView.height) * 0.5;
                     break;
                 }
-                case XFCoverTransitionStyleCoverRight2Left:
-                case XFCoverTransitionStyleCoverLeft2Right: {
+                case XFCoverTransitionStyleRight2Left:
+                case XFCoverTransitionStyleLeft2Right: {
                     toView.x = (containerView.width - toView.width) * 0.5;
                     break;
                 }
@@ -84,19 +84,19 @@
         [UIView animateWithDuration:self.animationDuration animations:^{
             UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
             switch (self.transitionStyle) {
-                case XFCoverTransitionStyleCoverTop2Bottom: {
+                case XFCoverTransitionStyleTop2Bottom: {
                     fromView.y = -fromView.height;
                     break;
                 }
-                case XFCoverTransitionStyleCoverBottom2Top: {
+                case XFCoverTransitionStyleBottom2Top: {
                     fromView.y = fromView.height;
                     break;
                 }
-                case XFCoverTransitionStyleCoverRight2Left: {
+                case XFCoverTransitionStyleRight2Left: {
                     fromView.x = fromView.width;
                     break;
                 }
-                case XFCoverTransitionStyleCoverLeft2Right: {
+                case XFCoverTransitionStyleLeft2Right: {
                     fromView.x = -fromView.width;
                     break;
                 }

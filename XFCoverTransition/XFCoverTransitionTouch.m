@@ -25,7 +25,7 @@ SingletonM(Instance)
     XFPresentationController *presentationController = [[XFPresentationController alloc] initWithPresentedViewController:presented presentingViewController:presenting];
     presentationController.renderRect = self.config ? self.config.renderRect : presentationController.containerView.bounds;
     // 添加手势移除功能
-    if (self.config.isOnlyForModalVCGestureDissmiss && self.config.transitionStyle <= XFCoverTransitionStyleCoverRight2Left) {
+    if (self.config.isOnlyForModalVCGestureDissmiss && self.config.transitionStyle <= XFCoverTransitionStyleRight2Left) {
         self.ctGesture = [XFCoverTransitionGesture gestureWithPresentingViewController:source presentedViewController:presented config:self.config];
     }
     return presentationController;
@@ -36,7 +36,7 @@ SingletonM(Instance)
     XFAnimatedTransitioning *anim = [[XFAnimatedTransitioning alloc] init];
     anim.presented = YES;
     anim.animationDuration = self.config ? self.config.animationDuration : 0.75;
-    anim.transitionStyle = self.config ? self.config.transitionStyle : XFCoverTransitionStyleCoverRight2Left;
+    anim.transitionStyle = self.config ? self.config.transitionStyle : XFCoverTransitionStyleRight2Left;
     return anim;
 }
 
@@ -45,7 +45,7 @@ SingletonM(Instance)
     XFAnimatedTransitioning *anim = [[XFAnimatedTransitioning alloc] init];
     anim.presented = NO;
     anim.animationDuration = self.config ? self.config.animationDuration : 0.75;
-    anim.transitionStyle = self.config ? self.config.transitionStyle : XFCoverTransitionStyleCoverRight2Left;
+    anim.transitionStyle = self.config ? self.config.transitionStyle : XFCoverTransitionStyleRight2Left;
     return anim;
 }
 

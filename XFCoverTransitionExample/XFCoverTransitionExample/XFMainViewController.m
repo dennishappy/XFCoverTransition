@@ -22,9 +22,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    // 添加手势支持
+    // 全手势模拟modal效果
     /*XFPageViewController *page = [[XFPageViewController alloc] init];
-    XFCTConfig *config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleCoverBottom2Top];
+    XFCTConfig *config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleTop2Bottom];
     self.ctGesture = [XFCoverTransitionGesture gestureWithPresentingViewController:self presentedViewController:page config:config];*/
 }
 
@@ -33,8 +33,8 @@
     XFPageViewController *page = [[XFPageViewController alloc] init];
     page.modalPresentationStyle = UIModalPresentationCustom;
     XFCoverTransitionTouch *ctTouch = [XFCoverTransitionTouch sharedInstance];
-    ctTouch.config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleCoverRight2Left];
-    // 支持手势
+    ctTouch.config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleRight2Left];
+    // 添加手势移除支持
     ctTouch.config.onlyForModalVCGestureDissmiss = YES;
     page.transitioningDelegate = ctTouch;
     [self presentViewController:page animated:YES completion:nil];
