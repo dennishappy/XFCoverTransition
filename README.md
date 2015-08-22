@@ -14,7 +14,7 @@ Add `#import "XFCoverTransition.h` to your UIViewController,the `XFPageViewContr
  page.modalPresentationStyle = UIModalPresentationCustom;
  XFCoverTransitionTouch *ctTouch = [XFCoverTransitionTouch sharedInstance];
  ctTouch.config = [XFCTConfig configWithRenderRect:self.view.bounds animationDuration:0.25 transitionStyle:XFCoverTransitionStyleCoverRight2Left];
- // 添加支持手势
+ // 添加移除手势支持
  ctTouch.config.onlyForModalVCGestureDissmiss = YES;
  page.transitioningDelegate = ctTouch;
  [self presentViewController:page animated:YES completion:nil];
